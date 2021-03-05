@@ -8,12 +8,44 @@
     <link rel="stylesheet" href="css/small.css">
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
 
 </head>
 <body>
-  <header>
-    <img src="images/pwselfie.jpg" alt="Image of Patten Whiting">
-    <h1>Patten Whiting</h1>
+  <header></header>
+    <h1 class="login">Login</h1>
+    <h1 class="display">Account Info</h1>
+    <h1 class="register">Register</h1>
+    <div class="login">
+      <form name="loginform"></form>
+          <label for="username">Username:</label><br>
+          <input type="text" id="username" value="" required><br>
+          <label for="password">Password:</label><br>
+          <input type="password" id="password" value="" required><br><br>
+          <input type="button" id="submit" value="Submit" onclick="login()"><br><br>
+      </form>
+      <button id="register" onclick="registerview()">Register</button>
+    </div>
+
+
+    <div class="display">
+      <h3>Username:</h3>
+      <span id="uname"></span>
+      <h3>Password:</h3>
+      <span id="pword"></span>
+    </div>
+
+    <div class="register">
+      <form name="loginform"></form>
+          <label for="fullname">Full Name:</label><br>
+          <input type="text" id="fullname" value="" required><br>
+          <label for="email">Email:</label><br>
+          <input type="email" id="email" value="" required><br>
+          <label for="rpassword">Password:</label><br>
+          <input type="password" id="rpassword" value="" required><br><br>
+          <input type="button" id="submit" value="Submit" onclick="register()"><br><br>
+      </form>
+    </div>
     
   </header>
   <main>

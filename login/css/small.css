@@ -1,0 +1,21 @@
+body {
+  text-align: left;
+  background-color: gainsboro;
+}
+body h1 {
+  text-align: center;
+}
+body .login {
+  padding-left: 30%;
+  padding-right: 50%;
+}
+body .display {
+  display: none;
+  padding-left: 30%;
+  padding-right: 50%;
+}
+body .register {
+  display: none;
+  padding-left: 30%;
+  padding-right: 50%;
+}
