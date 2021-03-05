@@ -16,6 +16,7 @@
     <h1 class="login">Login</h1>
     <h1 class="display">Account Info</h1>
     <h1 class="register">Register</h1>
+    <h1 class="modify">Update Info</h1>
     <div class="login">
       <form name="loginform"></form>
           <label for="username">Username:</label><br>
@@ -32,7 +33,21 @@
       <h3>Username:</h3>
       <span id="uname"></span>
       <h3>Password:</h3>
-      <span id="pword"></span>
+      <span id="pword"></span><br><br>
+      <input type="button" id="deleteuser" value="Delete Account" onclick="deleteuser()"><br><br>
+      <input type="button" id="modifyview" value="Update Info" onclick='modifyview(uname,pword)'>
+    </div>
+
+    <div class="modify">
+      <h3>Original Username:</h3>
+      <span id="ouname"></span>
+      <h3>Original Password:</h3>
+      <span id="opword"></span><br><br>
+      <label for="uusername">New Username:</label><br>
+      <input type="text" id="uusername" value="" required><br>
+      <label for="upassword">New Password</label><br>
+      <input type="text" id="upassword" value="" required><br><br>
+      <input type="button" id="update" value="Update" onclick="modify(ouname,opword,uusername,upassword)"><br><br>
     </div>
 
     <div class="register">

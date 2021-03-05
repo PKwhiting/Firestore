@@ -19,3 +19,8 @@ body .register {
   padding-left: 30%;
   padding-right: 50%;
 }
+body .modify {
+  display: none;
+  padding-left: 30%;
+  padding-right: 50%;
+}
