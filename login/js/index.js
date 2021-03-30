@@ -18,31 +18,63 @@ function login(){
  password = document.getElementById("password").value;
  console.log('test');
 
- firestore.collection("users").doc().set({user: username, password: password
-  }).then(function(){console.log('Username logged!');
-  }).catch(function(error){console.log('error: ', error);
+ var query = firestore.collection("users").where("user","==",username);
+ query.get().then(function(querySnapshot) {
+   querySnapshot.forEach(function(doc) {
+     field1 = doc.data().user;
+     field2 = doc.data().password;
+     console.log(field1 + username);
+     console.log(field2 + password)
+     if (field1 == username){
+
+      var all = document.getElementsByClassName('login');
+      for (var i = 0; i < all.length; i++) {
+        all[i].style.display = 'none';
+      }
+      var all = document.getElementsByClassName('display');
+      for (var i = 0; i < all.length; i++) {
+        all[i].style.display = 'block';
+      }
+
+      var query = firestore.collection("users").where("user","==",username);
+      query.get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          field1 = doc.data().user;
+          field2 = doc.data().password;
+          document.getElementById("uname").innerHTML = field1;
+          document.getElementById("pword").innerHTML = field2;
+        });
+      });
+
+
+
+
+
+
+
+     }
+     else{
+       location.reload();
+     }
+
+   });
  });
+ 
+
+
+
+
+
+
+
+//  firestore.collection("users").doc().set({user: username, password: password
+//   }).then(function(){console.log('Username logged!');
+//   }).catch(function(error){console.log('error: ', error);
+//  });
 
 
  
- var all = document.getElementsByClassName('login');
-for (var i = 0; i < all.length; i++) {
-  all[i].style.display = 'none';
-}
-var all = document.getElementsByClassName('display');
-for (var i = 0; i < all.length; i++) {
-  all[i].style.display = 'block';
-}
 
-var query = firestore.collection("users").where("user","==",username);
-query.get().then(function(querySnapshot) {
-  querySnapshot.forEach(function(doc) {
-    field1 = doc.data().user;
-    field2 = doc.data().password;
-    document.getElementById("uname").innerHTML = field1;
-    document.getElementById("pword").innerHTML = field2;
-  });
-});
 
 }
 function registerview(){
@@ -147,9 +179,7 @@ function modify(ouname,opword,uusername,upassword){
   opword = opword.innerHTML;
   uusername = uusername.value;
   upassword = upassword.value;
-  // var query = firestore.collection("users").where("user","==",uusername).limit(1).get();
-  // console.log(query);
-  // firestore.collection("users").doc(query).update({user:uusername, password:upassword});
+  
 var query = firestore.collection("users");
 query.where("user","==",ouname).get()
 .then(function(querySnapshot) {
